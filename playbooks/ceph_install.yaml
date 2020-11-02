@@ -1,0 +1,5 @@
+---
+- name: install the package for ready to deploy 
+  yum: 
+    name: epel*
+    state: latest

@@ -1,0 +1,9 @@
+- hosts: all
+  become: yes
+  remote_user: centos
+  gather_facts: no
+
+  tasks:
+    - include: common.yaml
+    - include: prepare_deploy.yaml
+      when: "'deploysrv' in {{ group_names }}"

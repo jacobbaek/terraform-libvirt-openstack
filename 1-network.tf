@@ -1,0 +1,41 @@
+# It can not make, if you use the duplicated bridge name or network name or addresses.
+
+resource "libvirt_network" "deploy" {
+  name = "${var.project-name}-deploy"
+  mode = "none"
+  bridge = "virbr${var.osp-ipnum}0"
+  addresses = ["${var.deploy-addr}.0/24"]
+  autostart = true
+}
+
+resource "libvirt_network" "storage" {
+  name = "${var.project-name}-storage"
+  mode = "none"
+  bridge = "virbr${var.osp-ipnum}1"
+  addresses = ["${var.storage-addr}.0/24"]
+  autostart = true
+}
+
+resource "libvirt_network" "monitor" {
+  name = "${var.project-name}-monitor"
+  mode = "none"
+  bridge = "virbr${var.osp-ipnum}2"
+  addresses = ["${var.monitor-addr}.0/24"]
+  autostart = true
+}
+
+resource "libvirt_network" "internal" {
+  name = "${var.project-name}-internal"
+  mode = "none"
+  bridge = "virbr${var.osp-ipnum}3"
+  addresses = ["${var.internal-addr}.0/24"]
+  autostart = true
+}
+
+resource "libvirt_network" "external" {
+  name = "${var.project-name}-external"
+  mode = "bridge"
+  bridge = "br0"
+  addresses = [var.external-net]
+  autostart = true
+}
