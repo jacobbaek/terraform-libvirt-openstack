@@ -1,4 +1,4 @@
-peline {
+pipeline {
     agent {
         node {
             label 'openstack-slave'
