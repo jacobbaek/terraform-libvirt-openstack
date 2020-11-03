@@ -10,13 +10,13 @@
 - name: git clone
   git:
     repo: 'https://github.com/ceph/ceph-ansible.git'
-    dest: /root/ceph-ansible
-    version: stable-4.0
+    dest: /home/ceph-ansible
+    version: stable-4.0.25
 
 - name: copy the private key
   copy:
     src: ~/.ssh/id_rsa
-    dest: /root/.ssh/id_rsa
+    dest: ~/.ssh/id_rsa
     mode: '0400'
 
 - name: install package from epel-release
@@ -52,5 +52,5 @@
 - name: git clone from kolla repo
   git:
     repo: 'https://github.com/openstack/kolla.git'
-    dest: /root/kolla
+    dest: /home/kolla
     version: stable/train

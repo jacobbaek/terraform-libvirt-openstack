@@ -3,15 +3,7 @@
   blockinfile:
     path: /etc/hosts
     insertafter: EOF
-    block: |
-      20.20.10.50 kolla-deploy
-      20.20.10.60 kolla-ctrl001
-      20.20.10.61 kolla-ctrl002
-      20.20.10.62 kolla-ctrl003
-      20.20.10.63 kolla-com001
-      20.20.10.70 kolla-ceph001
-      20.20.10.71 kolla-ceph002
-      20.20.10.72 kolla-ceph003
+    block: "{{ lookup('file', 'roles/common/files/hosts' )}}"
 
 - name: install packages
   yum:

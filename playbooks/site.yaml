@@ -1,0 +1,11 @@
+---
+- name: run the common role at the every nodes
+  hosts: admin
+  become: true
+  roles:
+    - role: common
+
+- name: prepare the deploy server
+  hosts: admin
+  roles:
+    - role: deploy
