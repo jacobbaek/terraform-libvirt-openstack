@@ -7,5 +7,6 @@
 
 - name: prepare the deploy server
   hosts: admin
+  become: true
   roles:
     - role: deploy

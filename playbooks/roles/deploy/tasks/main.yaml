@@ -40,7 +40,7 @@
   yum:
     name: "{{ item }}"
     state: latest
-  with_items:
+  loop:
     - docker-ce
     - docker-ce-cli
     - containerd.io

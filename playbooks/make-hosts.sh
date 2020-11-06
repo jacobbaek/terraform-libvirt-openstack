@@ -13,8 +13,12 @@ ceph_ip=`cat ../variables.tf | grep -A 1 ceph-ipnum | grep -E "[0-9]" | awk -F'\
 deploy_ip=`cat ../variables.tf | grep -A 1 deploy-ipnum | grep -E "[0-9]" | awk -F'\"' '{print $2}'`
 ceph_count=`cat ../variables.tf | grep -A 2 ceph-names | grep "default" | awk -F',' '{print NF}'`
 osp_count=`cat ../variables.tf | grep -A 2 osp-names | grep "default" | awk -F',' '{print NF}'`
+ceph_num=`expr $ceph_count - 1`
+osp_num=`expr $osp_count - 1`
 
-"${storage_net}.${osp_ip}"
-printf "${storage_net}.${ceph_ip}"
-printf "${storage_net}.${deploy_ip}"
-
+for i in `seq 0 $osp_num`; do
+    echo "kolla-ctrl00"$i"   ansible_host=${deploy_net}.${osp_ip}"$i
+done
+for i in `seq 0 $ceph_num`; do
+    echo "kolla-ceph00"$i"   ansible_host=${deploy_net}.${ceph_ip}"$i
+done
