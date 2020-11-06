@@ -23,7 +23,7 @@
   yum:
     name: "{{ item }}"
     state: latest
-  with_items:
+  loop:
     - python-pip
     - ansible
     - yum-utils
@@ -34,7 +34,8 @@
   yum_repository:
     name: docker-ce
     description: docker-ce
-    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+    baseurl: https://download.docker.com/linux/centos/$releasever/$basearch/stable
+    gpgcheck: no
 
 - name: install docker packages
   yum:
@@ -47,7 +48,9 @@
 
 - name: systemctl enable docker
   systemd:
-    enable: true
+    name: docker
+    state: started
+    enabled: true
 
 - name: git clone from kolla repo
   git:
