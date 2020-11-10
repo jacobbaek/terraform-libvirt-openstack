@@ -1,8 +1,0 @@
-10.10.10.5   kolla-deploy
-10.10.10.10  kolla-ctrl001 
-10.10.10.11  kolla-ctrl002 
-10.10.10.12  kolla-ctrl003 
-10.10.10.13  kolla-com001
-10.10.10.20  kolla-ceph001 
-10.10.10.21  kolla-ceph002
-10.10.10.22  kolla-ceph003

@@ -47,3 +47,6 @@ osp_instances_with_ipaddr = {
  1. terraform init
  2. terraform plan
  3. terraform apply --auto-approve
+ 4. cd playbook
+ 5. bash get-playbooks.sh
+ 6. 
