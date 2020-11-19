@@ -82,7 +82,7 @@ resource "libvirt_domain" "ceph-instances" {
   
   provisioner "remote-exec" {
     inline = [
-      "yum install -y qemu-guest-agent vim net-tools"
+      "yum install -y qemu-guest-agent"
     ]
   }
 }

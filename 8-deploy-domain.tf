@@ -64,7 +64,7 @@ resource "libvirt_domain" "deploy-instance" {
   
   provisioner "remote-exec" {
     inline = [
-      "yum install -y qemu-guest-agent vim net-tools"
+      "yum install -y qemu-guest-agent git"
     ]
   }
 }

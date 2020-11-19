@@ -80,7 +80,7 @@ resource "libvirt_domain" "osp-instances" {
   
   provisioner "remote-exec" {
     inline = [
-      "yum install -y qemu-guest-agent vim"
+      "yum install -y qemu-guest-agent"
     ]
   }
 }
