@@ -67,5 +67,5 @@ variable "vm_source" {
 }
 
 variable "fromdisk" {
-  default = "CentOS7.qcow2"
+  default = "centos8.qcow2"
 }
