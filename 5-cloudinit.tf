@@ -44,7 +44,7 @@ data "template_file" "osp_network_config" {
     internal_addr = var.internal-addr
     external_addr = var.external-addr
     ip_num  = "${var.osp-ipnum}${count.index}"
-    gateway = "192.168.0.1"
+    gateway = "${var.external-addr}.1"
   }
 }
 
@@ -59,7 +59,7 @@ data "template_file" "ceph_network_config" {
     storage_addr = var.storage-addr
     external_addr = var.external-addr
     ip_num  = "${var.ceph-ipnum}${count.index}"
-    gateway = "192.168.0.1"
+    gateway = "${var.external-addr}.1"
   }
 }
 
@@ -72,6 +72,6 @@ data "template_file" "deploy_network_config" {
     storage_addr = var.storage-addr
     external_addr = var.external-addr
     ip_num  = var.deploy-ipnum
-    gateway = "192.168.0.1"
+    gateway = "${var.external-addr}.1"
   }
 }
