@@ -9,8 +9,8 @@ resource "libvirt_cloudinit_disk" "deploy-cloudinit" {
 
 resource "libvirt_domain" "deploy-instance" {
   name = format("%s-%s", var.project-name, "deploy")
-  memory = "8192"
-  vcpu = 4
+  memory = "4096"
+  vcpu = 2
 
   cloudinit = libvirt_cloudinit_disk.deploy-cloudinit.id
 

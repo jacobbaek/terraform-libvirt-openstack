@@ -6,7 +6,8 @@ variable "project-name" {
 
 variable "osp-names" {
   type = list(string)
-  default = ["master001", "master002", "master003", "worker001"]
+  #default = ["master001", "master002", "master003", "worker001"]
+  default = []
 }
 
 variable "ceph-names" {
@@ -37,23 +38,26 @@ variable "monitor-addr" {
 }
 
 variable "external-addr" {
-  default = "192.168.201"
+  default = "172.16.100"
 }
 
 variable "external-net" {
-  default = "192.168.0.0/16"
+  default = "172.16.100.0/24"
 }
 
+# will be x.x.x.99
 variable "deploy-ipnum" {
-  default = "5"
+  default = "99"
 }
 
+# will be x.x.x.110 ~
 variable "osp-ipnum" {
-  default = "1"
+  default = "11"
 }
 
+# will be x.x.x.120 ~
 variable "ceph-ipnum" {
-  default = "2"
+  default = "12"
 }
 
 ### Storage

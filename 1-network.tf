@@ -32,10 +32,22 @@ resource "libvirt_network" "internal" {
   autostart = true
 }
 
+# below resource have defined bridge.
+#resource "libvirt_network" "external" {
+#  name = "${var.project-name}-external"
+#  mode = "bridge"
+#  bridge = "br0"
+#  addresses = [var.external-net]
+#  autostart = true
+#}
+
+# will make nat network and this can not access from external network.
 resource "libvirt_network" "external" {
   name = "${var.project-name}-external"
-  mode = "bridge"
-  bridge = "br0"
+  mode = "nat"
   addresses = [var.external-net]
   autostart = true
 }
+
+
+
