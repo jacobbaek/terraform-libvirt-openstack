@@ -2,8 +2,13 @@
 
 # for user account setting
 data "template_file" "user_data" {
-  count = length(var.osp-names) + length(var.ceph-names) + 1
+  count = length(var.osp-names) + length(var.ceph-names)
   template = file("${path.module}/templates/cloud_init.cfg")
+}
+
+# for user account setting
+data "template_file" "deploy_user_data" {
+  template = file("${path.module}/templates/deploy_cloud_init.cfg")
 }
 
 # for Hostname setting

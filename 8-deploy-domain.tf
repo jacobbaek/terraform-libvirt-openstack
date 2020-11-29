@@ -2,7 +2,7 @@ resource "libvirt_cloudinit_disk" "deploy-cloudinit" {
   pool = "default"
 
   name = "${var.project-name}-deploy-cloudinit.iso"
-  user_data = data.template_file.user_data[length(var.osp-names)+length(var.ceph-names)].rendered
+  user_data = data.template_file.deploy_user_data.rendered
   meta_data = data.template_file.deploy_metadata.rendered
   network_config = data.template_file.deploy_network_config.rendered
 }
