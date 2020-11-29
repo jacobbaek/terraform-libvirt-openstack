@@ -30,11 +30,15 @@ ceph_instances_with_ipaddr = {
 deploy_instances_with_ipaddr = {
   "jacobbaek-deploy" = []
 }
-osp_instances_with_ipaddr = {
-  "jacobbaek-master001" = []
-  "jacobbaek-master002" = []
-  "jacobbaek-master003" = []
-  "jacobbaek-worker001" = []
+control_instances_with_ipaddr = {
+  "jacobbaek-ctrl001" = []
+  "jacobbaek-ctrl002" = []
+  "jacobbaek-ctrl003" = []
+}
+compute_instances_with_ipaddr = {
+  "jacobbaek-ctrl001" = []
+  "jacobbaek-ctrl002" = []
+  "jacobbaek-ctrl003" = []
 }
 ```
 

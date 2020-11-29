@@ -6,17 +6,20 @@ variable "project-name" {
 
 variable "control-names" {
   type = list(string)
-  default = ["ctrl001"]
+  #default = ["ctrl001","ctrl002","ctrl003"]
+  default = []
 }
 
 variable "compute-names" {
   type = list(string)
-  default = ["com001"]
+  #default = ["com001","com002"]
+  default = []
 }
 
 variable "ceph-names" {
   type = list(string)
-  default = ["ceph001", "ceph002", "ceph003"]
+  #default = ["ceph001","ceph002","ceph003"]
+  default = ["ceph001","ceph002","ceph003"]
 }
 
 variable "deploy-name" {
