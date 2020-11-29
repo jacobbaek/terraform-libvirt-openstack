@@ -4,10 +4,14 @@ variable "project-name" {
   default = "jacobbaek"
 }
 
-variable "osp-names" {
+variable "control-names" {
   type = list(string)
-  #default = ["master001", "master002", "master003", "worker001"]
-  default = []
+  default = ["ctrl001"]
+}
+
+variable "compute-names" {
+  type = list(string)
+  default = ["com001"]
 }
 
 variable "ceph-names" {
@@ -51,13 +55,18 @@ variable "deploy-ipnum" {
 }
 
 # will be x.x.x.110 ~
-variable "osp-ipnum" {
+variable "control-ipnum" {
   default = "11"
 }
 
 # will be x.x.x.120 ~
-variable "ceph-ipnum" {
+variable "compute-ipnum" {
   default = "12"
+}
+
+# will be x.x.x.130 ~
+variable "ceph-ipnum" {
+  default = "13"
 }
 
 ### Storage

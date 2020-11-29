@@ -2,7 +2,7 @@
 
 # for user account setting
 data "template_file" "user_data" {
-  count = length(var.osp-names) + length(var.ceph-names)
+  count = length(var.control-names) + length(var.compute-names) + length(var.ceph-names)
   template = file("${path.module}/templates/cloud_init.cfg")
 }
 
@@ -11,12 +11,21 @@ data "template_file" "deploy_user_data" {
   template = file("${path.module}/templates/deploy_cloud_init.cfg")
 }
 
-# for Hostname setting
-data "template_file" "osp_metadata" {
-  count = length(var.osp-names)
+# for Hostname setting into control nodes
+data "template_file" "control_metadata" {
+  count = length(var.control-names)
   template = file("${path.module}/templates/metadata.yaml")
   vars = {
-    hostname = var.osp-names[count.index]
+    hostname = var.control-names[count.index]
+  }
+}
+
+# for Hostname setting into compute nodes
+data "template_file" "compute_metadata" {
+  count = length(var.compute-names)
+  template = file("${path.module}/templates/metadata.yaml")
+  vars = {
+    hostname = var.compute-names[count.index]
   }
 }
 
@@ -38,8 +47,8 @@ data "template_file" "deploy_metadata" {
 }
 
 # for Network setting
-data "template_file" "osp_network_config" {
-  count = length(var.osp-names)
+data "template_file" "control_network_config" {
+  count = length(var.control-names)
   template = file("${path.module}/templates/osp_network_config.cfg")
 
   vars = {
@@ -48,7 +57,23 @@ data "template_file" "osp_network_config" {
     storage_addr = var.storage-addr
     internal_addr = var.internal-addr
     external_addr = var.external-addr
-    ip_num  = "${var.osp-ipnum}${count.index}"
+    ip_num  = "${var.control-ipnum}${count.index}"
+    gateway = "${var.external-addr}.1"
+  }
+}
+
+# for Network setting
+data "template_file" "compute_network_config" {
+  count = length(var.compute-names)
+  template = file("${path.module}/templates/osp_network_config.cfg")
+
+  vars = {
+    deploy_addr = var.deploy-addr
+    monitor_addr = var.monitor-addr
+    storage_addr = var.storage-addr
+    internal_addr = var.internal-addr
+    external_addr = var.external-addr
+    ip_num  = "${var.compute-ipnum}${count.index}"
     gateway = "${var.external-addr}.1"
   }
 }
