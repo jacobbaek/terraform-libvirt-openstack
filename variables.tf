@@ -6,19 +6,18 @@ variable "project-name" {
 
 variable "control-names" {
   type = list(string)
-  #default = ["ctrl001","ctrl002","ctrl003"]
-  default = []
+  default = ["ctrl001","ctrl002","ctrl003"]
+  #default = []
 }
 
 variable "compute-names" {
   type = list(string)
-  #default = ["com001","com002"]
-  default = []
+  default = ["com001","com002","com003"]
+  #default = []
 }
 
 variable "ceph-names" {
   type = list(string)
-  #default = ["ceph001","ceph002","ceph003"]
   default = ["ceph001","ceph002","ceph003"]
 }
 
@@ -52,24 +51,24 @@ variable "external-net" {
   default = "172.16.100.0/24"
 }
 
-# will be x.x.x.99
+# will be x.x.x.5
 variable "deploy-ipnum" {
-  default = "99"
+  default = "5"
 }
 
-# will be x.x.x.110 ~
+# will be x.x.x.10 ~
 variable "control-ipnum" {
-  default = "11"
+  default = "1"
 }
 
-# will be x.x.x.120 ~
+# will be x.x.x.20 ~
 variable "compute-ipnum" {
-  default = "12"
+  default = "2"
 }
 
-# will be x.x.x.130 ~
+# will be x.x.x.30 ~
 variable "ceph-ipnum" {
-  default = "13"
+  default = "3"
 }
 
 ### Storage
@@ -78,11 +77,7 @@ variable "disk_pool" {
   default = "default"
 }
 
-variable "vm_source" {
-  default = "/var/lib/libvirt/images/CentOS7-1901.qcow2"
-}
-
 variable "fromdisk" {
-  #default = "centos8.qcow2"
-  default = "centos7.qcow2"
+  #default = "centos7.qcow2"
+  default = "/var/lib/libvirt/images/CentOS-7-x86_64-GenericCloud.qcow2"
 }

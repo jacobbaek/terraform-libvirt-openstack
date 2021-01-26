@@ -99,7 +99,7 @@ data "template_file" "deploy_network_config" {
 
   vars = {
     deploy_addr = var.deploy-addr
-    storage_addr = var.storage-addr
+    monitor_addr = var.monitor-addr
     external_addr = var.external-addr
     ip_num  = var.deploy-ipnum
     gateway = "${var.external-addr}.1"
