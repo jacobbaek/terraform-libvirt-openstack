@@ -48,6 +48,3 @@ resource "libvirt_network" "external" {
   addresses = [var.external-net]
   autostart = true
 }
-
-
-

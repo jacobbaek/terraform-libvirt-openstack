@@ -79,5 +79,5 @@ variable "disk_pool" {
 
 variable "fromdisk" {
   #default = "centos7.qcow2"
-  default = "/var/lib/libvirt/images/CentOS-7-x86_64-GenericCloud.qcow2"
+  default = "CentOS-7-x86_64-GenericCloud.qcow2"
 }
