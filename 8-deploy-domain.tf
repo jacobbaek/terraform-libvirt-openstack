@@ -43,21 +43,15 @@ resource "libvirt_domain" "deploy-instance" {
 
   # storage network
   network_interface {
-    network_id = libvirt_network.storage.id
+    network_id = libvirt_network.monitor.id
     addresses = ["${var.storage-addr}.${var.deploy-ipnum}"]
-    wait_for_lease = false
-  }
-
-  # storage network
-  network_interface {
-    network_id = libvirt_network.storage.id
-    addresses = ["${var.monitor-addr}.${var.deploy-ipnum}"]
     wait_for_lease = false
   }
 
   # external network
   network_interface {
-    network_name = "${var.project-name}-external"
+    #network_name = "${var.project-name}-external"
+    network_name = "default"
     addresses = ["${var.external-addr}.${var.deploy-ipnum}"]
     wait_for_lease = false
   }

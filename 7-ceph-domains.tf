@@ -56,7 +56,8 @@ resource "libvirt_domain" "ceph-instances" {
 
   # external network
   network_interface {
-    network_name = "${var.project-name}-external"
+    #network_name = "${var.project-name}-external"
+    network_name = "default"
     addresses = ["${var.external-addr}.${var.ceph-ipnum}${count.index}"]
     wait_for_lease = false
   }

@@ -1,7 +1,7 @@
 ### Common
 
 variable "project-name" {
-  default = "jacobbaek"
+  default = "jacob"
 }
 
 variable "control-names" {
@@ -44,11 +44,11 @@ variable "monitor-addr" {
 }
 
 variable "external-addr" {
-  default = "172.16.100"
+  default = "192.168.122"
 }
 
 variable "external-net" {
-  default = "172.16.100.0/24"
+  default = "192.168.122.0/24"
 }
 
 # will be x.x.x.5

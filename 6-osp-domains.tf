@@ -64,7 +64,8 @@ resource "libvirt_domain" "control-instances" {
 
   # external network
   network_interface {
-    network_name = "${var.project-name}-external"
+    #network_name = "${var.project-name}-external"
+    network_name = "default"
     addresses = ["${var.external-addr}.${var.control-ipnum}${count.index}"]
     wait_for_lease = false
   }
@@ -141,7 +142,8 @@ resource "libvirt_domain" "compute-instances" {
 
   # external network
   network_interface {
-    network_name = "${var.project-name}-external"
+    #network_name = "${var.project-name}-external"
+    network_name = "default"
     addresses = ["${var.external-addr}.${var.compute-ipnum}${count.index}"]
     wait_for_lease = false
   }
